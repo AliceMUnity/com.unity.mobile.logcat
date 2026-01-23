@@ -22,7 +22,7 @@ all_preview_apv_jobs:
   - path: .yamato/wrench/preview-a-p-v.yml#preview_apv_-_6000_5_-_windows
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 1.1.2.0
+    Wrench: 1.4.8.0
 
 # Functional tests for dependents found in the latest 2022.3 manifest (MacOS).
 preview_apv_-_2022_3_-_macos:
@@ -32,7 +32,7 @@ preview_apv_-_2022_3_-_macos:
     type: Unity::VM::osx
     flavor: b1.xlarge
   commands:
-  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-2-68_53c92d3b34ce3f4b652c9785dd1530bdc5885f6523465d6969c3be91f9ccaaf1.zip -o wrench-localapv.zip
+  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-3-0_3978eda62a03e3dbc469ab77590d20f8832032d8e0b586550597b7f590baefec.zip -o wrench-localapv.zip
   - command: 7z x -aoa wrench-localapv.zip
   - command: pip install semver requests --index-url https://artifactory-slo.bf.unity3d.com/artifactory/api/pypi/pypi/simple
   - command: python PythonScripts/print_machine_info.py
@@ -73,10 +73,14 @@ preview_apv_-_2022_3_-_macos:
   dependencies:
   - path: .yamato/wrench/package-pack-jobs.yml#package_pack_-_mobile_android-logcat
   variables:
-    UPMPVP_CONTEXT_WRENCH: 1.1.2.0
+    UNITY_LICENSING_SERVER_BASE_URL: http://unity-ci-licenses.hq.unity3d.com:8080/
+    UNITY_LICENSING_SERVER_DELETE_NUL: 0
+    UNITY_LICENSING_SERVER_DELETE_ULF: 0
+    UNITY_LICENSING_SERVER_TOOLSET: pro
+    UPMPVP_CONTEXT_WRENCH: 1.4.8.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 1.1.2.0
+    Wrench: 1.4.8.0
 
 # Functional tests for dependents found in the latest 2022.3 manifest (Ubuntu).
 preview_apv_-_2022_3_-_ubuntu:
@@ -86,7 +90,7 @@ preview_apv_-_2022_3_-_ubuntu:
     type: Unity::VM
     flavor: b1.large
   commands:
-  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-2-68_53c92d3b34ce3f4b652c9785dd1530bdc5885f6523465d6969c3be91f9ccaaf1.zip -o wrench-localapv.zip
+  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-3-0_3978eda62a03e3dbc469ab77590d20f8832032d8e0b586550597b7f590baefec.zip -o wrench-localapv.zip
   - command: 7z x -aoa wrench-localapv.zip
   - command: pip install semver requests --index-url https://artifactory-slo.bf.unity3d.com/artifactory/api/pypi/pypi/simple
   - command: python PythonScripts/print_machine_info.py
@@ -127,10 +131,14 @@ preview_apv_-_2022_3_-_ubuntu:
   dependencies:
   - path: .yamato/wrench/package-pack-jobs.yml#package_pack_-_mobile_android-logcat
   variables:
-    UPMPVP_CONTEXT_WRENCH: 1.1.2.0
+    UNITY_LICENSING_SERVER_BASE_URL: http://unity-ci-licenses.hq.unity3d.com:8080/
+    UNITY_LICENSING_SERVER_DELETE_NUL: 0
+    UNITY_LICENSING_SERVER_DELETE_ULF: 0
+    UNITY_LICENSING_SERVER_TOOLSET: pro
+    UPMPVP_CONTEXT_WRENCH: 1.4.8.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 1.1.2.0
+    Wrench: 1.4.8.0
 
 # Functional tests for dependents found in the latest 2022.3 manifest (Windows).
 preview_apv_-_2022_3_-_windows:
@@ -141,7 +149,7 @@ preview_apv_-_2022_3_-_windows:
     flavor: b1.large
   commands:
   - command: gsudo reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem" /v LongPathsEnabled /t REG_DWORD /d 1 /f
-  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-2-68_53c92d3b34ce3f4b652c9785dd1530bdc5885f6523465d6969c3be91f9ccaaf1.zip -o wrench-localapv.zip
+  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-3-0_3978eda62a03e3dbc469ab77590d20f8832032d8e0b586550597b7f590baefec.zip -o wrench-localapv.zip
   - command: 7z x -aoa wrench-localapv.zip
   - command: pip install semver requests --index-url https://artifactory-slo.bf.unity3d.com/artifactory/api/pypi/pypi/simple
   - command: python PythonScripts/print_machine_info.py
@@ -182,10 +190,14 @@ preview_apv_-_2022_3_-_windows:
   dependencies:
   - path: .yamato/wrench/package-pack-jobs.yml#package_pack_-_mobile_android-logcat
   variables:
-    UPMPVP_CONTEXT_WRENCH: 1.1.2.0
+    UNITY_LICENSING_SERVER_BASE_URL: http://unity-ci-licenses.hq.unity3d.com:8080/
+    UNITY_LICENSING_SERVER_DELETE_NUL: 0
+    UNITY_LICENSING_SERVER_DELETE_ULF: 0
+    UNITY_LICENSING_SERVER_TOOLSET: pro
+    UPMPVP_CONTEXT_WRENCH: 1.4.8.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 1.1.2.0
+    Wrench: 1.4.8.0
 
 # Functional tests for dependents found in the latest 6000.0 manifest (MacOS).
 preview_apv_-_6000_0_-_macos:
@@ -195,7 +207,7 @@ preview_apv_-_6000_0_-_macos:
     type: Unity::VM::osx
     flavor: b1.xlarge
   commands:
-  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-2-68_53c92d3b34ce3f4b652c9785dd1530bdc5885f6523465d6969c3be91f9ccaaf1.zip -o wrench-localapv.zip
+  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-3-0_3978eda62a03e3dbc469ab77590d20f8832032d8e0b586550597b7f590baefec.zip -o wrench-localapv.zip
   - command: 7z x -aoa wrench-localapv.zip
   - command: pip install semver requests --index-url https://artifactory-slo.bf.unity3d.com/artifactory/api/pypi/pypi/simple
   - command: python PythonScripts/print_machine_info.py
@@ -236,10 +248,14 @@ preview_apv_-_6000_0_-_macos:
   dependencies:
   - path: .yamato/wrench/package-pack-jobs.yml#package_pack_-_mobile_android-logcat
   variables:
-    UPMPVP_CONTEXT_WRENCH: 1.1.2.0
+    UNITY_LICENSING_SERVER_BASE_URL: http://unity-ci-licenses.hq.unity3d.com:8080/
+    UNITY_LICENSING_SERVER_DELETE_NUL: 0
+    UNITY_LICENSING_SERVER_DELETE_ULF: 0
+    UNITY_LICENSING_SERVER_TOOLSET: pro
+    UPMPVP_CONTEXT_WRENCH: 1.4.8.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 1.1.2.0
+    Wrench: 1.4.8.0
 
 # Functional tests for dependents found in the latest 6000.0 manifest (Ubuntu).
 preview_apv_-_6000_0_-_ubuntu:
@@ -249,7 +265,7 @@ preview_apv_-_6000_0_-_ubuntu:
     type: Unity::VM
     flavor: b1.large
   commands:
-  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-2-68_53c92d3b34ce3f4b652c9785dd1530bdc5885f6523465d6969c3be91f9ccaaf1.zip -o wrench-localapv.zip
+  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-3-0_3978eda62a03e3dbc469ab77590d20f8832032d8e0b586550597b7f590baefec.zip -o wrench-localapv.zip
   - command: 7z x -aoa wrench-localapv.zip
   - command: pip install semver requests --index-url https://artifactory-slo.bf.unity3d.com/artifactory/api/pypi/pypi/simple
   - command: python PythonScripts/print_machine_info.py
@@ -290,10 +306,14 @@ preview_apv_-_6000_0_-_ubuntu:
   dependencies:
   - path: .yamato/wrench/package-pack-jobs.yml#package_pack_-_mobile_android-logcat
   variables:
-    UPMPVP_CONTEXT_WRENCH: 1.1.2.0
+    UNITY_LICENSING_SERVER_BASE_URL: http://unity-ci-licenses.hq.unity3d.com:8080/
+    UNITY_LICENSING_SERVER_DELETE_NUL: 0
+    UNITY_LICENSING_SERVER_DELETE_ULF: 0
+    UNITY_LICENSING_SERVER_TOOLSET: pro
+    UPMPVP_CONTEXT_WRENCH: 1.4.8.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 1.1.2.0
+    Wrench: 1.4.8.0
 
 # Functional tests for dependents found in the latest 6000.0 manifest (Windows).
 preview_apv_-_6000_0_-_windows:
@@ -304,7 +324,7 @@ preview_apv_-_6000_0_-_windows:
     flavor: b1.large
   commands:
   - command: gsudo reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem" /v LongPathsEnabled /t REG_DWORD /d 1 /f
-  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-2-68_53c92d3b34ce3f4b652c9785dd1530bdc5885f6523465d6969c3be91f9ccaaf1.zip -o wrench-localapv.zip
+  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-3-0_3978eda62a03e3dbc469ab77590d20f8832032d8e0b586550597b7f590baefec.zip -o wrench-localapv.zip
   - command: 7z x -aoa wrench-localapv.zip
   - command: pip install semver requests --index-url https://artifactory-slo.bf.unity3d.com/artifactory/api/pypi/pypi/simple
   - command: python PythonScripts/print_machine_info.py
@@ -345,10 +365,14 @@ preview_apv_-_6000_0_-_windows:
   dependencies:
   - path: .yamato/wrench/package-pack-jobs.yml#package_pack_-_mobile_android-logcat
   variables:
-    UPMPVP_CONTEXT_WRENCH: 1.1.2.0
+    UNITY_LICENSING_SERVER_BASE_URL: http://unity-ci-licenses.hq.unity3d.com:8080/
+    UNITY_LICENSING_SERVER_DELETE_NUL: 0
+    UNITY_LICENSING_SERVER_DELETE_ULF: 0
+    UNITY_LICENSING_SERVER_TOOLSET: pro
+    UPMPVP_CONTEXT_WRENCH: 1.4.8.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 1.1.2.0
+    Wrench: 1.4.8.0
 
 # Functional tests for dependents found in the latest 6000.3 manifest (MacOS).
 preview_apv_-_6000_3_-_macos:
@@ -358,7 +382,7 @@ preview_apv_-_6000_3_-_macos:
     type: Unity::VM::osx
     flavor: b1.xlarge
   commands:
-  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-2-68_53c92d3b34ce3f4b652c9785dd1530bdc5885f6523465d6969c3be91f9ccaaf1.zip -o wrench-localapv.zip
+  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-3-0_3978eda62a03e3dbc469ab77590d20f8832032d8e0b586550597b7f590baefec.zip -o wrench-localapv.zip
   - command: 7z x -aoa wrench-localapv.zip
   - command: pip install semver requests --index-url https://artifactory-slo.bf.unity3d.com/artifactory/api/pypi/pypi/simple
   - command: python PythonScripts/print_machine_info.py
@@ -399,10 +423,14 @@ preview_apv_-_6000_3_-_macos:
   dependencies:
   - path: .yamato/wrench/package-pack-jobs.yml#package_pack_-_mobile_android-logcat
   variables:
-    UPMPVP_CONTEXT_WRENCH: 1.1.2.0
+    UNITY_LICENSING_SERVER_BASE_URL: http://unity-ci-licenses.hq.unity3d.com:8080/
+    UNITY_LICENSING_SERVER_DELETE_NUL: 0
+    UNITY_LICENSING_SERVER_DELETE_ULF: 0
+    UNITY_LICENSING_SERVER_TOOLSET: pro
+    UPMPVP_CONTEXT_WRENCH: 1.4.8.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 1.1.2.0
+    Wrench: 1.4.8.0
 
 # Functional tests for dependents found in the latest 6000.3 manifest (Ubuntu).
 preview_apv_-_6000_3_-_ubuntu:
@@ -412,7 +440,7 @@ preview_apv_-_6000_3_-_ubuntu:
     type: Unity::VM
     flavor: b1.large
   commands:
-  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-2-68_53c92d3b34ce3f4b652c9785dd1530bdc5885f6523465d6969c3be91f9ccaaf1.zip -o wrench-localapv.zip
+  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-3-0_3978eda62a03e3dbc469ab77590d20f8832032d8e0b586550597b7f590baefec.zip -o wrench-localapv.zip
   - command: 7z x -aoa wrench-localapv.zip
   - command: pip install semver requests --index-url https://artifactory-slo.bf.unity3d.com/artifactory/api/pypi/pypi/simple
   - command: python PythonScripts/print_machine_info.py
@@ -453,10 +481,14 @@ preview_apv_-_6000_3_-_ubuntu:
   dependencies:
   - path: .yamato/wrench/package-pack-jobs.yml#package_pack_-_mobile_android-logcat
   variables:
-    UPMPVP_CONTEXT_WRENCH: 1.1.2.0
+    UNITY_LICENSING_SERVER_BASE_URL: http://unity-ci-licenses.hq.unity3d.com:8080/
+    UNITY_LICENSING_SERVER_DELETE_NUL: 0
+    UNITY_LICENSING_SERVER_DELETE_ULF: 0
+    UNITY_LICENSING_SERVER_TOOLSET: pro
+    UPMPVP_CONTEXT_WRENCH: 1.4.8.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 1.1.2.0
+    Wrench: 1.4.8.0
 
 # Functional tests for dependents found in the latest 6000.3 manifest (Windows).
 preview_apv_-_6000_3_-_windows:
@@ -467,7 +499,7 @@ preview_apv_-_6000_3_-_windows:
     flavor: b1.large
   commands:
   - command: gsudo reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem" /v LongPathsEnabled /t REG_DWORD /d 1 /f
-  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-2-68_53c92d3b34ce3f4b652c9785dd1530bdc5885f6523465d6969c3be91f9ccaaf1.zip -o wrench-localapv.zip
+  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-3-0_3978eda62a03e3dbc469ab77590d20f8832032d8e0b586550597b7f590baefec.zip -o wrench-localapv.zip
   - command: 7z x -aoa wrench-localapv.zip
   - command: pip install semver requests --index-url https://artifactory-slo.bf.unity3d.com/artifactory/api/pypi/pypi/simple
   - command: python PythonScripts/print_machine_info.py
@@ -508,10 +540,14 @@ preview_apv_-_6000_3_-_windows:
   dependencies:
   - path: .yamato/wrench/package-pack-jobs.yml#package_pack_-_mobile_android-logcat
   variables:
-    UPMPVP_CONTEXT_WRENCH: 1.1.2.0
+    UNITY_LICENSING_SERVER_BASE_URL: http://unity-ci-licenses.hq.unity3d.com:8080/
+    UNITY_LICENSING_SERVER_DELETE_NUL: 0
+    UNITY_LICENSING_SERVER_DELETE_ULF: 0
+    UNITY_LICENSING_SERVER_TOOLSET: pro
+    UPMPVP_CONTEXT_WRENCH: 1.4.8.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 1.1.2.0
+    Wrench: 1.4.8.0
 
 # Functional tests for dependents found in the latest 6000.4 manifest (MacOS).
 preview_apv_-_6000_4_-_macos:
@@ -521,7 +557,7 @@ preview_apv_-_6000_4_-_macos:
     type: Unity::VM::osx
     flavor: b1.xlarge
   commands:
-  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-2-68_53c92d3b34ce3f4b652c9785dd1530bdc5885f6523465d6969c3be91f9ccaaf1.zip -o wrench-localapv.zip
+  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-3-0_3978eda62a03e3dbc469ab77590d20f8832032d8e0b586550597b7f590baefec.zip -o wrench-localapv.zip
   - command: 7z x -aoa wrench-localapv.zip
   - command: pip install semver requests --index-url https://artifactory-slo.bf.unity3d.com/artifactory/api/pypi/pypi/simple
   - command: python PythonScripts/print_machine_info.py
@@ -562,10 +598,14 @@ preview_apv_-_6000_4_-_macos:
   dependencies:
   - path: .yamato/wrench/package-pack-jobs.yml#package_pack_-_mobile_android-logcat
   variables:
-    UPMPVP_CONTEXT_WRENCH: 1.1.2.0
+    UNITY_LICENSING_SERVER_BASE_URL: http://unity-ci-licenses.hq.unity3d.com:8080/
+    UNITY_LICENSING_SERVER_DELETE_NUL: 0
+    UNITY_LICENSING_SERVER_DELETE_ULF: 0
+    UNITY_LICENSING_SERVER_TOOLSET: pro
+    UPMPVP_CONTEXT_WRENCH: 1.4.8.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 1.1.2.0
+    Wrench: 1.4.8.0
 
 # Functional tests for dependents found in the latest 6000.4 manifest (Ubuntu).
 preview_apv_-_6000_4_-_ubuntu:
@@ -575,7 +615,7 @@ preview_apv_-_6000_4_-_ubuntu:
     type: Unity::VM
     flavor: b1.large
   commands:
-  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-2-68_53c92d3b34ce3f4b652c9785dd1530bdc5885f6523465d6969c3be91f9ccaaf1.zip -o wrench-localapv.zip
+  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-3-0_3978eda62a03e3dbc469ab77590d20f8832032d8e0b586550597b7f590baefec.zip -o wrench-localapv.zip
   - command: 7z x -aoa wrench-localapv.zip
   - command: pip install semver requests --index-url https://artifactory-slo.bf.unity3d.com/artifactory/api/pypi/pypi/simple
   - command: python PythonScripts/print_machine_info.py
@@ -616,10 +656,14 @@ preview_apv_-_6000_4_-_ubuntu:
   dependencies:
   - path: .yamato/wrench/package-pack-jobs.yml#package_pack_-_mobile_android-logcat
   variables:
-    UPMPVP_CONTEXT_WRENCH: 1.1.2.0
+    UNITY_LICENSING_SERVER_BASE_URL: http://unity-ci-licenses.hq.unity3d.com:8080/
+    UNITY_LICENSING_SERVER_DELETE_NUL: 0
+    UNITY_LICENSING_SERVER_DELETE_ULF: 0
+    UNITY_LICENSING_SERVER_TOOLSET: pro
+    UPMPVP_CONTEXT_WRENCH: 1.4.8.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 1.1.2.0
+    Wrench: 1.4.8.0
 
 # Functional tests for dependents found in the latest 6000.4 manifest (Windows).
 preview_apv_-_6000_4_-_windows:
@@ -630,7 +674,7 @@ preview_apv_-_6000_4_-_windows:
     flavor: b1.large
   commands:
   - command: gsudo reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem" /v LongPathsEnabled /t REG_DWORD /d 1 /f
-  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-2-68_53c92d3b34ce3f4b652c9785dd1530bdc5885f6523465d6969c3be91f9ccaaf1.zip -o wrench-localapv.zip
+  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-3-0_3978eda62a03e3dbc469ab77590d20f8832032d8e0b586550597b7f590baefec.zip -o wrench-localapv.zip
   - command: 7z x -aoa wrench-localapv.zip
   - command: pip install semver requests --index-url https://artifactory-slo.bf.unity3d.com/artifactory/api/pypi/pypi/simple
   - command: python PythonScripts/print_machine_info.py
@@ -671,10 +715,14 @@ preview_apv_-_6000_4_-_windows:
   dependencies:
   - path: .yamato/wrench/package-pack-jobs.yml#package_pack_-_mobile_android-logcat
   variables:
-    UPMPVP_CONTEXT_WRENCH: 1.1.2.0
+    UNITY_LICENSING_SERVER_BASE_URL: http://unity-ci-licenses.hq.unity3d.com:8080/
+    UNITY_LICENSING_SERVER_DELETE_NUL: 0
+    UNITY_LICENSING_SERVER_DELETE_ULF: 0
+    UNITY_LICENSING_SERVER_TOOLSET: pro
+    UPMPVP_CONTEXT_WRENCH: 1.4.8.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 1.1.2.0
+    Wrench: 1.4.8.0
 
 # Functional tests for dependents found in the latest 6000.5 manifest (MacOS).
 preview_apv_-_6000_5_-_macos:
@@ -684,7 +732,7 @@ preview_apv_-_6000_5_-_macos:
     type: Unity::VM::osx
     flavor: b1.xlarge
   commands:
-  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-2-68_53c92d3b34ce3f4b652c9785dd1530bdc5885f6523465d6969c3be91f9ccaaf1.zip -o wrench-localapv.zip
+  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-3-0_3978eda62a03e3dbc469ab77590d20f8832032d8e0b586550597b7f590baefec.zip -o wrench-localapv.zip
   - command: 7z x -aoa wrench-localapv.zip
   - command: pip install semver requests --index-url https://artifactory-slo.bf.unity3d.com/artifactory/api/pypi/pypi/simple
   - command: python PythonScripts/print_machine_info.py
@@ -725,10 +773,14 @@ preview_apv_-_6000_5_-_macos:
   dependencies:
   - path: .yamato/wrench/package-pack-jobs.yml#package_pack_-_mobile_android-logcat
   variables:
-    UPMPVP_CONTEXT_WRENCH: 1.1.2.0
+    UNITY_LICENSING_SERVER_BASE_URL: http://unity-ci-licenses.hq.unity3d.com:8080/
+    UNITY_LICENSING_SERVER_DELETE_NUL: 0
+    UNITY_LICENSING_SERVER_DELETE_ULF: 0
+    UNITY_LICENSING_SERVER_TOOLSET: pro
+    UPMPVP_CONTEXT_WRENCH: 1.4.8.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 1.1.2.0
+    Wrench: 1.4.8.0
 
 # Functional tests for dependents found in the latest 6000.5 manifest (Ubuntu).
 preview_apv_-_6000_5_-_ubuntu:
@@ -738,7 +790,7 @@ preview_apv_-_6000_5_-_ubuntu:
     type: Unity::VM
     flavor: b1.large
   commands:
-  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-2-68_53c92d3b34ce3f4b652c9785dd1530bdc5885f6523465d6969c3be91f9ccaaf1.zip -o wrench-localapv.zip
+  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-3-0_3978eda62a03e3dbc469ab77590d20f8832032d8e0b586550597b7f590baefec.zip -o wrench-localapv.zip
   - command: 7z x -aoa wrench-localapv.zip
   - command: pip install semver requests --index-url https://artifactory-slo.bf.unity3d.com/artifactory/api/pypi/pypi/simple
   - command: python PythonScripts/print_machine_info.py
@@ -779,10 +831,14 @@ preview_apv_-_6000_5_-_ubuntu:
   dependencies:
   - path: .yamato/wrench/package-pack-jobs.yml#package_pack_-_mobile_android-logcat
   variables:
-    UPMPVP_CONTEXT_WRENCH: 1.1.2.0
+    UNITY_LICENSING_SERVER_BASE_URL: http://unity-ci-licenses.hq.unity3d.com:8080/
+    UNITY_LICENSING_SERVER_DELETE_NUL: 0
+    UNITY_LICENSING_SERVER_DELETE_ULF: 0
+    UNITY_LICENSING_SERVER_TOOLSET: pro
+    UPMPVP_CONTEXT_WRENCH: 1.4.8.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 1.1.2.0
+    Wrench: 1.4.8.0
 
 # Functional tests for dependents found in the latest 6000.5 manifest (Windows).
 preview_apv_-_6000_5_-_windows:
@@ -793,7 +849,7 @@ preview_apv_-_6000_5_-_windows:
     flavor: b1.large
   commands:
   - command: gsudo reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem" /v LongPathsEnabled /t REG_DWORD /d 1 /f
-  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-2-68_53c92d3b34ce3f4b652c9785dd1530bdc5885f6523465d6969c3be91f9ccaaf1.zip -o wrench-localapv.zip
+  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-3-0_3978eda62a03e3dbc469ab77590d20f8832032d8e0b586550597b7f590baefec.zip -o wrench-localapv.zip
   - command: 7z x -aoa wrench-localapv.zip
   - command: pip install semver requests --index-url https://artifactory-slo.bf.unity3d.com/artifactory/api/pypi/pypi/simple
   - command: python PythonScripts/print_machine_info.py
@@ -834,8 +890,12 @@ preview_apv_-_6000_5_-_windows:
   dependencies:
   - path: .yamato/wrench/package-pack-jobs.yml#package_pack_-_mobile_android-logcat
   variables:
-    UPMPVP_CONTEXT_WRENCH: 1.1.2.0
+    UNITY_LICENSING_SERVER_BASE_URL: http://unity-ci-licenses.hq.unity3d.com:8080/
+    UNITY_LICENSING_SERVER_DELETE_NUL: 0
+    UNITY_LICENSING_SERVER_DELETE_ULF: 0
+    UNITY_LICENSING_SERVER_TOOLSET: pro
+    UPMPVP_CONTEXT_WRENCH: 1.4.8.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 1.1.2.0
+    Wrench: 1.4.8.0
 
