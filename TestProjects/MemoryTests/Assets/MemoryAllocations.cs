@@ -47,9 +47,7 @@ public class MemoryAllocations : MonoBehaviour
             throw new Exception("Failed to find com.unity3d.player.JavaMemory");
 
         Application.lowMemory += () => Log("Application.lowMemory called");
-#if UNITY_2022_3_OR_NEWER
         Application.memoryUsageChanged += (in ApplicationMemoryUsageChange usage) => Log($"Application.memoryUsageChanged called with usage: {usage.memoryUsage}");
-#endif
     }
 
     // Update is called once per frame
