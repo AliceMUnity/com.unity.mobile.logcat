@@ -30,3 +30,4 @@
 .npmrc
 .vsconfig
 packages-lock.json
+Tools/CI/bin
