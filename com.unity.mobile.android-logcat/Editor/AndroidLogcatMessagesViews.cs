@@ -41,6 +41,8 @@ namespace Unity.Android.Logcat
 
         private Vector2 m_ScrollPosition = Vector2.zero;
         private float m_MaxLogEntryWidth = 0.0f;
+        private Dictionary<LogcatEntry, float> m_EntryWidthCache = new Dictionary<LogcatEntry, float>();
+        private static readonly GUIContent s_EntryWidthCalculator = new GUIContent();
         private static readonly List<LogcatEntry> kNoEntries = new List<LogcatEntry>();
         private Dictionary<string, Priority> m_TagPriorityOnDevice = new Dictionary<string, Priority>();
         private float m_TagPriorityErrorHeight = 0.0f;
@@ -371,6 +373,17 @@ namespace Unity.Android.Logcat
             }
         }
 
+        private float GetOrComputeEntryWidth(LogcatEntry entry)
+        {
+            if (!m_EntryWidthCache.TryGetValue(entry, out float width))
+            {
+                s_EntryWidthCalculator.text = entry.message;
+                width = AndroidLogcatStyles.priorityDefaultStyle.CalcSize(s_EntryWidthCalculator).x;
+                m_EntryWidthCache[entry] = width;
+            }
+            return width;
+        }
+
         private bool DoGUIEntries()
         {
             bool requestRepaint = false;
@@ -469,7 +482,7 @@ namespace Unity.Android.Logcat
                     DoLogEntryItem(visibleWindowRect, i, Column.Message, le.message, style);
 
                     m_MaxLogEntryWidth = Mathf.Max(m_MaxLogEntryWidth,
-                        AndroidLogcatStyles.priorityDefaultStyle.CalcSize(new GUIContent(le.message)).x + Columns[(int)Column.Message].itemSize.x);
+                        GetOrComputeEntryWidth(le) + Columns[(int)Column.Message].itemSize.x);
                 }
                 else
                 {

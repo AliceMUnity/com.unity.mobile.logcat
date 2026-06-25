@@ -131,6 +131,8 @@ namespace Unity.Android.Logcat
         private void OnSettingsChanged(AndroidLogcatSettings settings)
         {
             m_ApplySettings = true;
+            m_EntryWidthCache.Clear();
+            m_MaxLogEntryWidth = 0.0f;
         }
 
         private void RemoveTag(string tag)
@@ -814,6 +816,8 @@ namespace Unity.Android.Logcat
             if (m_Logcat != null)
                 m_Logcat.Stop();
 
+            m_EntryWidthCache.Clear();
+            m_MaxLogEntryWidth = 0.0f;
             UpdateStatusBar();
         }
 
@@ -824,6 +828,8 @@ namespace Unity.Android.Logcat
                 return;
             }
 
+            m_EntryWidthCache.Clear();
+            m_MaxLogEntryWidth = 0.0f;
             m_Logcat.Stop();
             m_Logcat.Clear();
             m_Logcat.Start();
